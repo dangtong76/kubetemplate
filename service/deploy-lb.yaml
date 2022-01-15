@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-deployment
+  labels:
+    app: nodeapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodeapp-pod
+  template:
+    metadata:
+      labels:
+        app: nodeapp-pod
+    spec:
+      containers:
+      - name: nodeapp-container
+        image: dangtong/nodeapp
+        ports:
+        - containerPort: 8080

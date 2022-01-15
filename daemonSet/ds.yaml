@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nodeapp-on-ssd
+spec:
+  selector:
+    matchLabels:
+      app: nodeapp-pod
+  template:
+    metadata:
+      labels:
+        app: nodeapp-pod
+    spec:
+      nodeSelector: 
+        disk: ssd 
+      containers: 
+      - name: nodeapp-container
+        image: dangtong76/nodeapp

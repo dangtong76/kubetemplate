@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeapp-pod-with-gpu
+  labels:
+    env: prod
+    domain: pay
+spec:
+  nodeSelector:
+    gpu: "true"
+  containers:
+  - image: dangtong76/nodeapp
+    name: nodeapp-container 
+    ports: 
+    - containerPort: 8080
+      protocol: TCP

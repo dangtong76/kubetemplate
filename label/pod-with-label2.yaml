@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeapp-pod2
+  labels:
+    env: dev
+    domain: pay
+spec:
+  containers:
+  - image: dangtong76/nodeapp
+    name: nodeapp-container 
+    ports: 
+    - containerPort: 8080
+      protocol: TCP
