@@ -3,7 +3,7 @@ kind: StorageClass
 metadata:
   name: sc-standard-retain
 provisioner: kubernetes.io/gce-pd
-reclaimPolicy: Retain
+reclaimPolicy: {{ Values.sc.reclaimPolicy }}
 parameters:
-  type: pd-ssd
-  zone: asia-northeast3-a
+  type: {{ Values.sc.type }}
+  zone: {{ Values.sc.zone }}
