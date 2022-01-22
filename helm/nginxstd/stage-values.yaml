@@ -1,0 +1,6 @@
+environment: development
+container:
+  name: nginx
+  port: 80
+  image: nginx:1.7.9
+replicas: 4

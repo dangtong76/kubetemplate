@@ -1,0 +1,19 @@
+config:
+  target: "http://34.64.241.152"
+  phases:
+    - duration: 10
+      arrivalRate: 1
+      name: Warm up
+    - duration: 100
+      arrivalRate: 2
+      rampTo: 20
+      name: Ramp up
+    - duration: 200
+      arrivalRate: 20
+      name: Sustain
+scenarios:
+  # We define one scenario:
+  - name: "just get hash"
+    flow:
+      - get:
+          url: "/"

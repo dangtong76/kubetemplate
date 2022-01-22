@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: goapp-damonset
+spec:
+  selector:
+    matchLabels:
+      app: goapp-pod
+  template:
+    metadata:
+      labels:
+        app: goapp-pod
+    spec:
+      tolerations:
+      - key: service
+        operator: Equal
+        value: prime 
+        effect: NoSchedule
+      containers:
+      - name: goapp-container
+        image: dangtong/goapp

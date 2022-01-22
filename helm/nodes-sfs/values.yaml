@@ -1,0 +1,19 @@
+sts: 
+  name: nodejs-sfs 
+container: 
+  name: nodejs-sfs 
+  image: dangtong76/nodejs-sfs
+  port: 8080 
+  volumeName: data
+  volumePath: /var/data 
+volumeClaim: 
+  name: data 
+  storageSize: 1Mi
+  class: sc-standard-retain
+lb: 
+  port: 80 
+  targetPort: 80 
+sc: 
+  reclaimPolicy: retain 
+  type: pd-ssd
+  zone: ap-northeast3-a
